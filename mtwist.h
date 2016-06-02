@@ -19,9 +19,9 @@
 #define MT_32_L 18
 #define MT_32_F 0x6C078965
 
-#define MT_32_MAX 4294967295 //(2^32)-1
-#define MT_32_HIGH_BIT 0x80000000
-#define MT_32_LOW_BITS 0x7fffffff
+#define MT_32_MAX 2147483647 //(2^31)-1
+#define MT_32_HIGH_BIT_MASK 0x80000000
+#define MT_32_LOW_BITS_MASK 0x7fffffff
 #define MT_32_FLOAT_CHUNKS 16777216
 
 #define MT_64_W 64
@@ -38,9 +38,9 @@
 #define MT_64_L 43
 #define MT_64_F 0x5851F42D4C957F2D
 
-#define MT_64_MAX 18446744073709551615 //(2^64)-1
-#define MT_32_HIGH_BIT 0x8000000000000000
-#define MT_32_LOW_BITS 0x7fffffffffffffff
+#define MT_64_MAX 9223372036854775807 //(2^63)-1
+#define MT_64_HIGH_BIT_MASK 0x8000000000000000
+#define MT_64_LOW_BITS_MASK 0x7fffffffffffffff
 #define MT_64_FLOAT_CHUNKS 16777216
 
 #define MT_BIT_VAR(bits, var) MT_##bits##_##var
@@ -54,7 +54,7 @@ typedef struct {
 
 void mt_32_seed(MTGen32* self, int32_t seed);
 int32_t mt_32_next(MTGen32* self, int32_t n);
-float mt_32_nextf(MTGen32* selfn);
+float mt_32_nextf(MTGen32* self);
 int32_t mt_32_range(MTGen32* self, int32_t min, int32_t max);
 float mt_32_rangef(MTGen32* self, float min, float max);
 
