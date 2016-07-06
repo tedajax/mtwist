@@ -100,9 +100,9 @@ int32_t _mt_32_next(MTGen32* self) {
 
     int32_t y = self->mt[self->index];
 
-    y = y ^ y >> (MT_VAR(U) & MT_VAR(D));
-    y = y ^ y << (MT_VAR(S) & MT_VAR(B));
-    y = y ^ y << (MT_VAR(T) & MT_VAR(C));
+    y = y ^ y >> MT_VAR(U) & MT_VAR(D);
+    y = y ^ y << MT_VAR(S) & MT_VAR(B);
+    y = y ^ y << MT_VAR(T) & MT_VAR(C);
     y = y ^ y >> MT_VAR(L);
 
     self->index++;
@@ -186,9 +186,9 @@ int64_t _mt_64_next(MTGen64* self)
 
     int64_t y = self->mt[self->index];
 
-    y = y ^ y >> (MT_VAR(U) & MT_VAR(D));
-    y = y ^ y << (MT_VAR(S) & MT_VAR(B));
-    y = y ^ y << (MT_VAR(T) & MT_VAR(C));
+    y = y ^ y >> MT_VAR(U) & MT_VAR(D);
+    y = y ^ y << MT_VAR(S) & MT_VAR(B);
+    y = y ^ y << MT_VAR(T) & MT_VAR(C);
     y = y ^ y >> MT_VAR(L);
 
     self->index++;
